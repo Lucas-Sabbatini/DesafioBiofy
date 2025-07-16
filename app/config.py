@@ -8,6 +8,6 @@ class Settings(BaseSettings):
     DATABASE_URL: str = "sqlite:///./sql_app.db"
     GEMINI_API_KEY: str
 
-    model_config = SettingsConfigDict(env_file="secrets.env", extra="ignore")
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 settings = Settings()
