@@ -17,7 +17,7 @@ class Contract(Base):
     id = Column(Integer, primary_key=True, index=True)
     file_name = Column(String, unique=True, index=True)
     uploaded_at = Column(DateTime(timezone=True), server_default=func.now())
-    parties = Column(Text) # JSON string ou Text para armazenar listas/dicionários
+    parties = Column(Text)
     monetary_values = Column(Text)
     main_obligations = Column(Text)
     additional_data = Column(Text)
@@ -27,9 +27,9 @@ class Contract(Base):
     def create_from_ai(cls, file_name: str, ai_data: dict) -> "Contract":
         return cls(
             file_name=file_name,
-            parties=json.dumps(ai_data.get("parties", [])),
-            monetary_values=json.dumps(ai_data.get("monetary_values", [])),
-            main_obligations=json.dumps(ai_data.get("main_obligations", [])),
-            additional_data=json.dumps(ai_data.get("additional_data", {})),
+            parties=json.dumps(ai_data.get("parties")),
+            monetary_values=json.dumps(ai_data.get("monetary_values")),
+            main_obligations=json.dumps(ai_data.get("main_obligations")),
+            additional_data=json.dumps(ai_data.get("additional_data")),
             termination_clause=ai_data.get("termination_clause"),
         )
