@@ -1,4 +1,3 @@
-# app/contracts/service.py
 from sqlalchemy.orm import Session
 from fastapi import UploadFile, HTTPException, status
 from ..models import Contract

@@ -1,12 +1,11 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
-from .database import init_db
+from .auth.router import router as auth_router
 from .contracts.router import router as contracts_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Ao iniciar a aplicação
-    init_db()  # Inicializa o banco de dados
     yield
     # Ao encerrar a aplicação (se necessário, fechar conexões, etc.)
     # Pass
@@ -19,6 +18,7 @@ app = FastAPI(
 )
 
 # Incluir os routers
+app.include_router(auth_router, prefix="/api/v1")
 app.include_router(contracts_router, prefix="/api/v1")
 
 if __name__ == "__main__":

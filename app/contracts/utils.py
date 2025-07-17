@@ -4,7 +4,6 @@ from fastapi import UploadFile, HTTPException, status
 from io import BytesIO
 import json
 from google import genai
-from google.genai import types
 
 from .prompt import CONTRACT_EXTRACTION_PROMPT
 from ..config import settings

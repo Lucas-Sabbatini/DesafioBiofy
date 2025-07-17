@@ -7,15 +7,10 @@ class Token(BaseModel):
 class TokenData(BaseModel):
     username: str | None = None
 
-class UserBase(BaseModel):
+class User(BaseModel):
     username: str
+    is_active: bool | None = None
 
-class UserCreate(UserBase):
-    password: str
 
-class User(UserBase):
-    id:        int
-    is_active: bool
-
-    class Config:
-        from_attributes = True  # ou orm_mode = True para Pydantic < v2
+class UserInDB(User):
+    hashed_password: str
