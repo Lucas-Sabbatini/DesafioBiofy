@@ -1,0 +1,151 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #000;
+}
+
+.info-section {
+  flex: 1;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 60px 40px 60px 0;
+  color: #fff;
+}
+
+.info-section h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.author {
+  font-size: 1.2rem;
+  margin-bottom: 32px;
+  color: #fff;
+}
+
+.icons {
+  display: flex;
+  gap: 24px;
+}
+
+.icons a img {
+  width: 36px;
+  height: 36px;
+  filter: grayscale(1) brightness(0.7) invert(1);
+  transition: filter 0.2s;
+}
+
+.icons a svg path {
+  fill: #fff;
+  transition: fill 0.2s;
+}
+
+.icons a:hover svg path {
+  fill: #0054ff;
+}
+
+.icons a:hover img {
+  filter: none;
+}
+
+.login-section {
+  flex: 1;
+  max-width: 400px;
+  background: #fff;
+  color: #000;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 48px 36px;
+  margin-left: 40px;
+}
+
+.login-section h2 {
+  margin-bottom: 23px;
+  color: #003fa3;
+}
+
+.login-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.login-section input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.login-section button {
+  padding: 12px;
+  background: #0054ff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-section button:hover {
+  background: #003fa3;
+}
+
+.info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.biofy-logo {
+  width: 200px;
+  height: auto;
+  display: block;
+  margin-bottom: 64px;
+}
+
+.login-icon {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 32px 0;
+  }
+  .info-section, .login-section {
+    max-width: 100%;
+    align-items: center;
+    padding: 32px 16px;
+    margin: 0;
+  }
+  .login-section {
+    margin-top: 24px;
+  }
+} 

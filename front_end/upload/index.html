@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio BiofyTech</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="menu-nav">
+    <div class="menu-logo">
+      <img src="../imagens/biofy_logo.svg" alt="Logo Biofy" class="biofy-logo">
+      <span>Desafio BiofyTech</span>
+    </div>
+    <a href="../menu/index.html" class="voltar-btn" title="Voltar para o menu principal">Home</a>
+  </nav>
+  <main class="upload-main">
+    <h1>Upload e Processamento de Contratos</h1>
+    <form class="upload-form" id="formUpload" enctype="multipart/form-data" onsubmit="enviarArquivo(event)">
+        <div class="upload-form-container">
+          <label for="arquivoContrato" class="custom-file-label">Procurar
+            <input type="file" id="arquivoContrato" accept=".pdf,.docx" required style="display:none;">
+          </label>
+          <span id="nomeArquivo" class="file-name">Nenhum arquivo selecionado</span>
+        </div>
+      <button type="submit">Enviar e Processar</button>
+    </form>
+    <section id="resultadoProcessamento" class="contrato-info" style="display:none;"></section>
+  </main>
+  <script>
+    // JSON de exemplo (simulando resposta do backend)
+    const respostaExemplo = {
+      "file_name": "contrato-prestacao.pdf",
+      "id": 2,
+      "uploaded_at": "2025-07-18T12:49:11",
+      "contract_data": {
+        "parties": [
+          "Lucas Sabbatini Janot",
+          "Marcelo Sabbatini Janot"
+        ],
+        "monetary_values": [
+          "R$ 20.000,00",
+          "R$ 10.000,00",
+          "R$ 5.000,00",
+          "10%",
+          "20%"
+        ],
+        "main_obligations": [
+          "CONTRATANTE: Fornecer à CONTRATADA todas as informações necessárias à realização do serviço, devendo especificar os detalhes necessários à perfeita consecução do mesmo.",
+          "CONTRATANTE: Disponibilizar computadores e servidores para o deployment da aplicação.",
+          "CONTRATANTE: Efetuar o pagamento na forma e condições estabelecidas na cláusula sétima.",
+          "CONTRATADA: Prestar os serviços solicitados pela CONTRATANTE conforme descritivo, especificações e prazos previstos no ANEXO I.",
+          "CONTRATADA: Manter absoluto sigilo sobre as operações, dados, estratégias, materiais, informações e documentos da CONTRATANTE, mesmo após a conclusão dos serviços ou do término da relação contratual.",
+          "CONTRATADA: Utilizar contratos, informações, dados, materiais e documentos inerentes à CONTRATANTE ou a seus clientes estritamente para cumprimento dos serviços solicitados, sendo vedado a comercialização ou utilização para outros fins.",
+          "CONTRATADA: Ser responsável por todo o ônus trabalhista ou tributário referente aos funcionários utilizados para a prestação do serviço objeto deste instrumento.",
+          "CONTRATADA: Fornecer os respectivos documentos fiscais, referente ao(s) pagamento(s) do presente instrumento."
+        ],
+        "additional_data": {
+          "objeto": "prestação de serviços proﬁssionais especializados em programação de plataformas web de forma inteligente e automatizaada utilizando produtos de Inteligência Artiﬁcial.",
+          "vigencia": "Prazo indeterminado, vigendo até a finalização do serviço ora contratado, ou encerramento do contrato."
+        },
+        "termination_clause": "Poderá o presente instrumento ser rescindido por qualquer das partes, em qualquer momento, sem que haja qualquer tipo de motivo relevante, respeitando-se um período mínimo de 30 dias, devendo então somente ser ﬁnalizadas e pagas as etapas que já estiverem em andamento."
+      }
+    };
+
+    function enviarArquivo(event) {
+      event.preventDefault();
+      // Simulação: sempre retorna respostaExemplo
+      exibirProcessamento(respostaExemplo);
+    }
+
+    function exibirProcessamento(contrato) {
+      const el = document.getElementById('resultadoProcessamento');
+      el.style.display = 'block';
+      el.innerHTML = `
+        <div class="subsection"><span class="label">Arquivo:</span> <span class="value">${contrato.file_name}</span></div>
+        <div class="subsection"><span class="label">ID:</span> <span class="value">${contrato.id}</span></div>
+        <div class="subsection"><span class="label">Enviado em:</span> <span class="value">${new Date(contrato.uploaded_at).toLocaleString('pt-BR')}</span></div>
+        <div class="subsection"><span class="label">Partes:</span><ul>${contrato.contract_data.parties.map(p=>`<li>${p}</li>`).join('')}</ul></div>
+        <div class="subsection"><span class="label">Valores:</span><ul>${contrato.contract_data.monetary_values.map(v=>`<li>${v}</li>`).join('')}</ul></div>
+        <div class="subsection"><span class="label">Obrigações Principais:</span><ul>${contrato.contract_data.main_obligations.map(o=>`<li>${o}</li>`).join('')}</ul></div>
+        <div class="subsection"><span class="label">Objeto:</span> <span class="value">${contrato.contract_data.additional_data.objeto}</span></div>
+        <div class="subsection"><span class="label">Vigência:</span> <span class="value">${contrato.contract_data.additional_data.vigencia}</span></div>
+        <div class="subsection"><span class="label">Cláusula de Rescisão:</span> <span class="value">${contrato.contract_data.termination_clause}</span></div>
+      `;
+    }
+
+    // Atualiza o nome do arquivo selecionado
+    document.getElementById('arquivoContrato').addEventListener('change', function(e) {
+      const nome = e.target.files.length ? e.target.files[0].name : 'Nenhum arquivo selecionado';
+      document.getElementById('nomeArquivo').textContent = nome;
+    });
+  </script>
+</body>
+</html> 

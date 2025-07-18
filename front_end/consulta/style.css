@@ -1,0 +1,129 @@
+.consulta-main {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #111;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+}
+
+.consulta-search {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.consulta-search input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  font-size: 1.1rem;
+  background: #222;
+  color: #fff;
+}
+
+.consulta-search button {
+  padding: 12px 28px;
+  background: #0054ff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.consulta-search button:hover {
+  background: #003fa3;
+}
+
+.contrato-info {
+  margin-top: 24px;
+}
+
+.contrato-info h2 {
+  color: #0054ff;
+  margin-bottom: 12px;
+}
+
+.contrato-info ul {
+  margin: 0 0 18px 0;
+  padding-left: 20px;
+}
+
+.contrato-info li {
+  margin-bottom: 6px;
+}
+
+.contrato-info .label {
+  font-weight: bold;
+  color: #fff;
+}
+
+.contrato-info .value {
+  color: #fff;
+}
+
+.contrato-info .subsection {
+  margin-bottom: 18px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+.menu-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #000;
+  padding: 24px 40px;
+  border-bottom: 2px solid #0054ff;
+}
+
+.menu-logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.menu-logo .biofy-logo {
+  width: 60px;
+  height: auto;
+}
+
+.menu-logo span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.voltar-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #0054ff;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 6px;
+  margin-right: 24px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.voltar-btn:hover {
+  background: #003fa3;
+  color: #fff;
+}
+
+
+ 
+  

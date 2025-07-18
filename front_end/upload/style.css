@@ -1,0 +1,200 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+.menu-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #000;
+  padding: 24px 40px;
+  border-bottom: 2px solid #0054ff;
+}
+
+.menu-logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.menu-logo .biofy-logo {
+  width: 60px;
+  height: auto;
+}
+
+.menu-logo span {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.voltar-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #0054ff;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 6px;
+  margin-right: 24px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.voltar-btn:hover {
+  background: #003fa3;
+  color: #fff;
+}
+
+.upload-main {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #111;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-main h1 {
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+.custom-file-label {
+  background: #181818;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  transition: background 0.2s;
+  margin-right: 12px;
+}
+
+.custom-file-label:hover {
+  background: #101014;
+}
+
+.file-name {
+  color: #fff;
+  font-size: 1rem;
+  margin-right: 18px;
+  margin-left: 8px;
+  min-width: 160px;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.upload-form input[type="file"] {
+  padding: 10px;
+  background: #222;
+  color: #fff;
+  border: 1px solid #444;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  width: 100%;
+  max-width: 350px;
+}
+
+.upload-form button {
+  padding: 12px 28px;
+  background: #0054ff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.upload-form button:hover {
+  background: #003fa3;
+}
+
+.contrato-info {
+  margin-top: 24px;
+  width: 100%;
+}
+
+.contrato-info h2 {
+  color: #0054ff;
+  margin-bottom: 12px;
+}
+
+.contrato-info ul {
+  margin: 0 0 18px 0;
+  padding-left: 20px;
+}
+
+.contrato-info li {
+  margin-bottom: 6px;
+}
+
+.contrato-info .label {
+  font-weight: bold;
+  color: #fff;
+}
+
+.contrato-info .value {
+  color: #fff;
+}
+
+.contrato-info .subsection {
+  margin-bottom: 18px;
+}
+
+.upload-form-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  border: 1px solid #444;
+  padding: 4px;
+  border-radius: 6px;
+}
+
+@media (max-width: 900px) {
+  .upload-main {
+    padding: 16px;
+  }
+  .menu-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 12px;
+  }
+  .menu-logo span {
+    font-size: 1.1rem;
+  }
+  .upload-form input[type="file"] {
+    max-width: 100%;
+  }
+} 
