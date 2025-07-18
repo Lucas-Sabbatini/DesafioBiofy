@@ -7,10 +7,3 @@ class Token(BaseModel):
 class TokenData(BaseModel):
     username: str | None = None
 
-class User(BaseModel):
-    username: str
-    is_active: bool | None = None
-
-
-class UserInDB(User):
-    hashed_password: str

@@ -70,7 +70,7 @@ def client() -> Generator[TestClient, None, None]:
 
 
 @pytest.fixture(scope="function")
-def test_user(db_session):
+def mock_user(db_session):
     """
     Fixture para criar um usuário de teste no banco de dados.
     """
@@ -85,8 +85,8 @@ def test_user(db_session):
 
 
 @pytest.fixture(scope="function")
-def auth_token(test_user):
+def auth_token(mock_user):
     """
     Fixture para gerar um token de autenticação para o usuário de teste.
     """
-    return create_access_token(data={"sub": test_user.username})
+    return create_access_token(mock_user.username)

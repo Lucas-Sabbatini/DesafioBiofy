@@ -16,7 +16,7 @@ def contract_service(db_session):
 @pytest.mark.asyncio
 @patch('app.contracts.service.extract_text_from_pdf')
 @patch('app.contracts.service.process_contract_with_ai')
-async def test_upload_and_process_contract(mock_process_ai, mock_extract_text , contract_service, db_session, test_user):
+async def test_upload_and_process_contract(mock_process_ai, contract_service, db_session, mock_user):
     """
     Testa o fluxo completo de upload e processamento de um contrato.
     A chamada à IA é mockada.
