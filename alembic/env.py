@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+import os
 from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
@@ -28,6 +29,11 @@ target_metadata = Base.metadata
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
 load_dotenv()
+db_url = os.getenv("DATABASE_URL")
+if db_url is None:
+    raise ValueError("Enviroment variable DATABASE_URL not defined.")
+
+config.set_main_option("sqlalchemy.url", db_url)
 
 
 def run_migrations_offline() -> None:

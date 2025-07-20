@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, Text, Boolean
+from sqlalchemy import Column, Integer, String, Text, Boolean, TIMESTAMP
 from sqlalchemy.sql import func
 from .database import Base
 import json
@@ -16,7 +16,7 @@ class Contract(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     file_name = Column(String, unique=True, index=True)
-    uploaded_at = Column(DateTime(timezone=True), server_default=func.now())
+    uploaded_at = Column(TIMESTAMP(timezone=True), server_default=func.now())
     parties = Column(Text)
     monetary_values = Column(Text)
     main_obligations = Column(Text)

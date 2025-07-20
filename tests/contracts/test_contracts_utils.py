@@ -27,5 +27,5 @@ def test_parse_and_normalize_json_invalid():
     with pytest.raises(HTTPException) as exc_info:
         __parse_and_normalize_json(json_string)
     assert exc_info.value.status_code == 500
-    assert "IA retornou um JSON incorreto" in exc_info.value.detail
+    assert "AI returned a malformed JSON" in exc_info.value.detail
 

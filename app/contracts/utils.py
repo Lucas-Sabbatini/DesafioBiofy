@@ -40,7 +40,7 @@ def __parse_and_normalize_json(ai_output: str) -> dict:
     except json.JSONDecodeError as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail=f"AI returned a wrong JSON {e}"
+            detail=f"AI returned a malformed JSON {e}"
         )
 
     return parsed

@@ -33,7 +33,7 @@ def upgrade() -> None:
     op.create_table('contracts',
     sa.Column('id', sa.INTEGER(), nullable=False),
     sa.Column('file_name', sa.VARCHAR(), nullable=True),
-    sa.Column('uploaded_at', sa.DATETIME(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
+    sa.Column('uploaded_at', sa.TIMESTAMP(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
     sa.Column('parties', sa.TEXT(), nullable=True),
     sa.Column('monetary_values', sa.TEXT(), nullable=True),
     sa.Column('main_obligations', sa.TEXT(), nullable=True),

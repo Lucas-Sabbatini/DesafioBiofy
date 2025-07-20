@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  # Serviço do Banco de Dados PostgreSQL
+  db:
+    image: postgres:13.21-alpine3.21
+    container_name: biofy_postgres_db
+    restart: unless-stopped
+    environment:
+      # As credenciais serão lidas do seu arquivo .env
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      # Cria um volume nomeado para persistir os dados do banco de dados
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      # Verifica se o banco de dados está pronto para aceitar conexões
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+  app:
+    container_name: biofy_fastapi_app
+    build: .
+    restart: unless-stopped
+    ports:
+      # Mapeia a porta da aplicação
+      - "8000:8000"
+    volumes:
+      # Permite "hot-reloading": alterações no seu código local refletem
+      # instantaneamente no contêiner, sem precisar reconstruir a imagem.
+      - ./app:/code/app
+      - ./alembic:/code/alembic
+      - ./alembic.ini:/code/alembic.ini
+      - ./front_end:/code/front_end
+    env_file:
+      - .env
+    depends_on:
+      db:
+        condition: service_healthy
+
+    command: bash -c "alembic upgrade head && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+
+# Definição dos volumes nomeados
+volumes:
+  postgres_data:
