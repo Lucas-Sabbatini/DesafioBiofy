@@ -32,7 +32,7 @@ DATABASE_URL="postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTG
 ### 3. Construa e inicie os contêineres:
 No terminal, na raiz do projeto, execute o seguinte comando:
 ```bash
-docker-compose up --build
+docker compose up --build
 ```
 Este comando irá:
 1. Construirá a imagem do serviço da aplicação (app) com base no Dockerfile.
