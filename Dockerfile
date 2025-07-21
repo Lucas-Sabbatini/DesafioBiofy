@@ -13,6 +13,8 @@ COPY ./app /code/app
 COPY ./alembic /code/alembic
 COPY alembic.ini .
 COPY ./front_end /code/front_end
+COPY ./start.sh /code/start.sh
+RUN chmod +x /code/start.sh
 
 
 EXPOSE 8000
