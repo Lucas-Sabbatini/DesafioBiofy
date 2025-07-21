@@ -1,5 +1,4 @@
 import pytest
-from unittest.mock import patch, AsyncMock
 from fastapi import HTTPException
 
 from app.contracts.service import ContractService
