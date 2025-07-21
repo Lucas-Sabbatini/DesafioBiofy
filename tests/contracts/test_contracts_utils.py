@@ -1,5 +1,5 @@
 import pytest
-from unittest.mock import MagicMock, patch
+from contract_text import CONTRACT_TEXT, CONTRACT_INVALID_TEXT
 from fastapi import HTTPException
 from app.contracts.utils import (
     __parse_and_normalize_json,
@@ -29,3 +29,12 @@ def test_parse_and_normalize_json_invalid():
     assert exc_info.value.status_code == 500
     assert "AI returned a malformed JSON" in exc_info.value.detail
 
+@pytest.mark.asyncio
+async def test_process_contract_with_ai_success():
+    ai_response = await process_contract_with_ai(CONTRACT_TEXT)
+
+    assert ai_response.get("parties") is not None
+    assert ai_response.get("monetary_values") is not None
+    assert ai_response.get("main_obligations") is not None
+    assert ai_response.get("additional_data") is not None
+    assert ai_response.get("termination_clause") is not None
