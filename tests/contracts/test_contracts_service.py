@@ -1,7 +1,6 @@
 import pytest
 from unittest.mock import patch, AsyncMock
-from fastapi import UploadFile, HTTPException
-import io
+from fastapi import HTTPException
 
 from app.contracts.service import ContractService
 from app.models import Contract

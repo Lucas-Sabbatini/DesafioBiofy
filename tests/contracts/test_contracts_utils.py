@@ -1,5 +1,5 @@
 import pytest
-from contract_text import CONTRACT_TEXT, CONTRACT_INVALID_TEXT
+from contract_text import CONTRACT_TEXT
 from fastapi import HTTPException
 from app.contracts.utils import (
     __parse_and_normalize_json,

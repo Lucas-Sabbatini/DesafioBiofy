@@ -8,8 +8,6 @@ class ContractBase(BaseModel):
     file_name: str
 
 class ContractUpload(ContractBase):
-    # TODO
-    # aqui pode entrar validação extra, ex: tamanho máximo, extensão, ...
     pass
 
 class ContractData(BaseModel):
