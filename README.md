@@ -145,6 +145,7 @@ Extrai dados cruciais de um contrato enviado.
 ### 3. Consulta de Contrato Específico
 #### `GET /api/v1/contracts/{contract_name}`
 Recupera dados de um contrato específico pelo nome.
+**Importante**: A extensão do arquivo (.pdf ou .docx) faz parte do contract_name!
 
 - **Headers:**
   - `Authorization: Bearer {token}`
