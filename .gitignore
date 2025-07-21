@@ -11,8 +11,6 @@ venv/
 env/
 .venv/
 
-# SQLite database file
-sql_app.db
 
 # IDE and editor settings
 .vscode/
