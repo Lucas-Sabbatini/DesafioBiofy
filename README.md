@@ -1,4 +1,4 @@
-# Desafio BiofyTech: Análise de Contratos com IA
+# LexCortex: Análise de Contratos com IA
 
 Este projeto consiste em uma API desenvolvida em FastAPI para upload, processamento e consulta de contratos, utilizando inteligência artificial para extrair informações relevantes dos documentos. A aplicação é conteinerizada com Docker e possui um front-end para interação.
 
@@ -15,8 +15,8 @@ Este projeto consiste em uma API desenvolvida em FastAPI para upload, processame
 
 ### 1. Clone o repositório
 ```bash
-git clone https://github.com/Lucas-Sabbatini/DesafioBiofy
-cd DesafioBiofy
+git clone https://github.com/Lucas-Sabbatini/LexCortex.git
+cd LexCortex
 ```
 
 ### 2. Crie o arquivo de ambiente `.env`
@@ -180,11 +180,3 @@ Recupera dados de um contrato específico pelo nome.
   ```json
   { "detail": "Contract 'contrato-prestacao.pasd' not found." }
   ```
-
-
-
----
-
-<p align="center">
-  <b>Desenvolvido por Lucas Sabbatini para o Desafio BiofyTech</b>
-</p>
